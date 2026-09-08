@@ -10,6 +10,13 @@ spec:
     metadata:
       labels: { app: tigergate-test-java }
     spec:
+      hostNetwork: true # Deliberately insecure IaC fixture.
       containers:
         - name: app
           image: tigergate-test-java:latest
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          env:
+            - name: DATABASE_PASSWORD
+              value: "fixture-password-not-real"
