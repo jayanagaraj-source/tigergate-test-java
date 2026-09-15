@@ -1,0 +1,3 @@
+# FINDING: SEC-040 CWE-798 netrc-credentials
+machine api.github.com login fixture-user password ghp_F1xTuR3n0tR3aLt0k3nAbCdEfGhIjKlMnOpQr
+machine registry.npmjs.org login fixture-user password npm_F1xTuR3F4k3T0k3nAbCdEfGhIjKlMnOpQrStUv

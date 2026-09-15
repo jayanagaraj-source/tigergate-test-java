@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tigergate-test-java
+spec:
+  type: LoadBalancer # FINDING: IAC-160 CWE-284 k8s-service-public-loadbalancer
+  selector: { app: tigergate-test-java }
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tigergate-test-java
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false" # FINDING: IAC-161 CWE-319 k8s-ingress-ssl-redirect-off
+spec:
+  # FINDING: IAC-162 CWE-319 k8s-ingress-no-tls (tls block absent)
+  rules:
+    - host: fixture.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tigergate-test-java
+                port: { number: 80 }

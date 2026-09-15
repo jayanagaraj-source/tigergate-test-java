@@ -1,0 +1,43 @@
+# NEGATIVE CONTROL. Hardened pod spec; any finding here is a false positive.
+# SAFE: CTRL-021 k8s-hardened-pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tigergate-secure
+  namespace: tigergate
+  labels: { app: tigergate-secure }
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    runAsGroup: 10001
+    fsGroup: 10001
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: app
+      image: ghcr.io/example/tigergate-test-java@sha256:0000000000000000000000000000000000000000000000000000000000000000
+      imagePullPolicy: Always
+      securityContext:
+        allowPrivilegeEscalation: false
+        privileged: false
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        capabilities:
+          drop: ["ALL"]
+      resources:
+        requests: { cpu: "100m", memory: "128Mi" }
+        limits: { cpu: "500m", memory: "256Mi" }
+      livenessProbe:
+        httpGet: { path: /healthz, port: 8080 }
+        initialDelaySeconds: 10
+      readinessProbe:
+        httpGet: { path: /ready, port: 8080 }
+        initialDelaySeconds: 5
+      ports:
+        - containerPort: 8080
+      env:
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef: { name: app-db, key: password }

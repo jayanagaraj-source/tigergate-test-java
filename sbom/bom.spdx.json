@@ -1,0 +1,719 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "tigergate-test-java-1.0.0",
+  "documentNamespace": "https://example.com/spdx/tigergate-test-java-1.0.0",
+  "creationInfo": {
+    "created": "2026-09-15T06:57:39Z",
+    "creators": [
+      "Tool: cyclonedx-maven-plugin-2.7.9",
+      "Tool: jq-cdx-to-spdx"
+    ]
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "name": "tigergate-test-java",
+      "versionInfo": "1.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/test/tigergate-test-java@1.0.0?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-log4j-core-2.14.1",
+      "name": "log4j-core",
+      "versionInfo": "2.14.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.logging.log4j",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-log4j-api-2.14.1",
+      "name": "log4j-api",
+      "versionInfo": "2.14.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.logging.log4j",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-jackson-databind-2.9.8",
+      "name": "jackson-databind",
+      "versionInfo": "2.9.8",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: com.fasterxml.jackson.core",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-jackson-annotations-2.9.0",
+      "name": "jackson-annotations",
+      "versionInfo": "2.9.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: com.fasterxml.jackson.core",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.9.0?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-jackson-core-2.9.8",
+      "name": "jackson-core",
+      "versionInfo": "2.9.8",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: com.fasterxml.jackson.core",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-collections-3.2.1",
+      "name": "commons-collections",
+      "versionInfo": "3.2.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: commons-collections",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/commons-collections/commons-collections@3.2.1?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-snakeyaml-1.29",
+      "name": "snakeyaml",
+      "versionInfo": "1.29",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.yaml",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.yaml/snakeyaml@1.29?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-text-1.9",
+      "name": "commons-text",
+      "versionInfo": "1.9",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.commons",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.commons/commons-text@1.9?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-lang3-3.11",
+      "name": "commons-lang3",
+      "versionInfo": "3.11",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.commons",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.commons/commons-lang3@3.11?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-io-2.6",
+      "name": "commons-io",
+      "versionInfo": "2.6",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: commons-io",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/commons-io/commons-io@2.6?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-fileupload-1.3.2",
+      "name": "commons-fileupload",
+      "versionInfo": "1.3.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: commons-fileupload",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/commons-fileupload/commons-fileupload@1.3.2?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-guava-19.0",
+      "name": "guava",
+      "versionInfo": "19.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: com.google.guava",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.google.guava/guava@19.0?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-xstream-1.4.10",
+      "name": "xstream",
+      "versionInfo": "1.4.10",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: com.thoughtworks.xstream",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.10?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-xmlpull-1.1.3.1",
+      "name": "xmlpull",
+      "versionInfo": "1.1.3.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: xmlpull",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/xmlpull/xmlpull@1.1.3.1?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-xpp3-min-1.1.4c",
+      "name": "xpp3_min",
+      "versionInfo": "1.1.4c",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: xpp3",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/xpp3/xpp3_min@1.1.4c?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-h2-1.4.199",
+      "name": "h2",
+      "versionInfo": "1.4.199",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: com.h2database",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.h2database/h2@1.4.199?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-spring-beans-5.3.17",
+      "name": "spring-beans",
+      "versionInfo": "5.3.17",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.springframework",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.springframework/spring-beans@5.3.17?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-spring-core-5.3.17",
+      "name": "spring-core",
+      "versionInfo": "5.3.17",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.springframework",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.springframework/spring-core@5.3.17?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-spring-jcl-5.3.17",
+      "name": "spring-jcl",
+      "versionInfo": "5.3.17",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.springframework",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.springframework/spring-jcl@5.3.17?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-httpclient-4.5.2",
+      "name": "httpclient",
+      "versionInfo": "4.5.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.httpcomponents",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.httpcomponents/httpclient@4.5.2?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-httpcore-4.4.4",
+      "name": "httpcore",
+      "versionInfo": "4.4.4",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.httpcomponents",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.httpcomponents/httpcore@4.4.4?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-logging-1.2",
+      "name": "commons-logging",
+      "versionInfo": "1.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: commons-logging",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/commons-logging/commons-logging@1.2?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-commons-codec-1.9",
+      "name": "commons-codec",
+      "versionInfo": "1.9",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: commons-codec",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/commons-codec/commons-codec@1.9?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-postgresql-42.2.5",
+      "name": "postgresql",
+      "versionInfo": "42.2.5",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.postgresql",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.postgresql/postgresql@42.2.5?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-struts2-core-2.5.30",
+      "name": "struts2-core",
+      "versionInfo": "2.5.30",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.apache.struts",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.apache.struts/struts2-core@2.5.30?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-freemarker-2.3.31",
+      "name": "freemarker",
+      "versionInfo": "2.3.31",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.freemarker",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.freemarker/freemarker@2.3.31?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-ognl-3.1.29",
+      "name": "ognl",
+      "versionInfo": "3.1.29",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: ognl",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/ognl/ognl@3.1.29?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-javassist-3.20.0-GA",
+      "name": "javassist",
+      "versionInfo": "3.20.0-GA",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.javassist",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.javassist/javassist@3.20.0-GA?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-junit-4.12",
+      "name": "junit",
+      "versionInfo": "4.12",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: junit",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/junit/junit@4.12?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-hamcrest-core-1.3",
+      "name": "hamcrest-core",
+      "versionInfo": "1.3",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: org.hamcrest",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.hamcrest/hamcrest-core@1.3?type=jar"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-javax.servlet-api-4.0.1",
+      "name": "javax.servlet-api",
+      "versionInfo": "4.0.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "Organization: javax.servlet",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/javax.servlet/javax.servlet-api@4.0.1?type=jar"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-tigergate-test-java-1.0.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-log4j-core-2.14.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-log4j-api-2.14.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-jackson-databind-2.9.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-jackson-annotations-2.9.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-jackson-core-2.9.8"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-collections-3.2.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-snakeyaml-1.29"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-text-1.9"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-lang3-3.11"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-io-2.6"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-fileupload-1.3.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-guava-19.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-xstream-1.4.10"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-xmlpull-1.1.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-xpp3-min-1.1.4c"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-h2-1.4.199"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-spring-beans-5.3.17"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-spring-core-5.3.17"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-spring-jcl-5.3.17"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-httpclient-4.5.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-httpcore-4.4.4"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-logging-1.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-commons-codec-1.9"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-postgresql-42.2.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-struts2-core-2.5.30"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-freemarker-2.3.31"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-ognl-3.1.29"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-javassist-3.20.0-GA"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-junit-4.12"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-hamcrest-core-1.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-tigergate-test-java-1.0.0",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-javax.servlet-api-4.0.1"
+    }
+  ]
+}

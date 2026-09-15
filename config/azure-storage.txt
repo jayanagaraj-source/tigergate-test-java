@@ -1,0 +1,2 @@
+# FINDING: SEC-041 CWE-798 azure-storage-connection-string
+DefaultEndpointsProtocol=https;AccountName=tigergatefixture;AccountKey=RjF4VHVSM0Y0azNLM3lBYkNkRWZHaElqS2xNbk9wUXJTdFV2V3hZejAxMjM0NTY3ODlBQkNERUZHSElKS0xNTk9QUVJTVFVWV1g=;EndpointSuffix=core.windows.net

@@ -1,3 +1,33 @@
+# Deliberately insecure compose fixture. Do not run.
 services:
   app:
     build: .
+    image: tigergate-test-java:latest # FINDING: IAC-190 CWE-494 compose-latest-tag
+    privileged: true          # FINDING: IAC-191 CWE-250 compose-privileged
+    network_mode: host        # FINDING: IAC-192 CWE-284 compose-host-network
+    pid: host                 # FINDING: IAC-193 CWE-284 compose-host-pid
+    user: root                # FINDING: IAC-194 CWE-250 compose-root-user
+    cap_add:
+      - SYS_ADMIN             # FINDING: IAC-195 CWE-250 compose-cap-sys-admin
+      - NET_ADMIN
+    security_opt:
+      - seccomp:unconfined    # FINDING: IAC-196 CWE-284 compose-seccomp-unconfined
+      - apparmor:unconfined   # FINDING: IAC-197 CWE-284 compose-apparmor-unconfined
+    ports:
+      - "0.0.0.0:2375:2375"   # FINDING: IAC-198 CWE-284 compose-port-bound-all-interfaces
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # FINDING: IAC-199 CWE-284 compose-docker-socket-mount
+      - /:/host                                   # FINDING: IAC-200 CWE-284 compose-host-root-mount
+    environment:
+      DATABASE_PASSWORD: "Sup3rS3cret!"  # FINDING: SEC-080 CWE-798 compose-secret-in-environment
+      GITHUB_TOKEN: "ghp_F1xTuR3n0tR3aLt0k3nAbCdEfGhIjKlMnOpQr" # FINDING: SEC-081 CWE-798 compose-github-token
+    # FINDING: IAC-201 CWE-400 compose-no-resource-limits (deploy.resources absent)
+    # FINDING: IAC-202 CWE-284 compose-no-read-only (read_only: true absent)
+
+  db:
+    image: postgres:9.6 # FINDING: IAC-203 CWE-1104 compose-eol-database-image
+    environment:
+      POSTGRES_PASSWORD: "Sup3rS3cret!" # FINDING: SEC-082 CWE-798 compose-db-password
+      POSTGRES_HOST_AUTH_METHOD: trust  # FINDING: IAC-204 CWE-287 compose-postgres-trust-auth
+    ports:
+      - "5432:5432" # FINDING: IAC-205 CWE-284 compose-database-port-published

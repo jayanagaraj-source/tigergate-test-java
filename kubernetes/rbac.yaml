@@ -1,0 +1,30 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: fixture-everything
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"] # FINDING: IAC-150 CWE-269 k8s-clusterrole-wildcard-resources
+    verbs: ["*"]     # FINDING: IAC-151 CWE-269 k8s-clusterrole-wildcard-verbs
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "watch"] # FINDING: IAC-152 CWE-269 k8s-role-read-all-secrets
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"] # FINDING: IAC-153 CWE-269 k8s-role-pods-exec
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: fixture-default-sa-cluster-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin # FINDING: IAC-154 CWE-269 k8s-binding-to-cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: default # FINDING: IAC-155 CWE-269 k8s-default-sa-bound-to-clusterrole
+    namespace: default
+  - kind: Group
+    name: system:unauthenticated # FINDING: IAC-156 CWE-284 k8s-binding-to-unauthenticated
+    apiGroup: rbac.authorization.k8s.io

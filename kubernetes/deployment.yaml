@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tigergate-test-java
+  # FINDING: IAC-130 CWE-284 k8s-default-namespace (namespace absent, lands in default)
 spec:
   replicas: 1
   selector:
@@ -10,13 +11,43 @@ spec:
     metadata:
       labels: { app: tigergate-test-java }
     spec:
-      hostNetwork: true # Deliberately insecure IaC fixture.
+      hostNetwork: true # FINDING: IAC-131 CWE-284 k8s-host-network
+      hostPID: true     # FINDING: IAC-132 CWE-284 k8s-host-pid
+      hostIPC: true     # FINDING: IAC-133 CWE-284 k8s-host-ipc
+      automountServiceAccountToken: true # FINDING: IAC-134 CWE-284 k8s-automount-sa-token
+      # FINDING: IAC-135 CWE-284 k8s-no-pod-security-context (runAsNonRoot / seccomp absent at pod level)
       containers:
         - name: app
-          image: tigergate-test-java:latest
+          image: tigergate-test-java:latest # FINDING: IAC-136 CWE-494 k8s-image-latest-tag
+          imagePullPolicy: IfNotPresent
           securityContext:
-            privileged: true
-            runAsUser: 0
+            privileged: true # FINDING: IAC-137 CWE-250 k8s-privileged-container
+            runAsUser: 0     # FINDING: IAC-138 CWE-250 k8s-run-as-root
+            allowPrivilegeEscalation: true # FINDING: IAC-139 CWE-250 k8s-allow-privilege-escalation
+            readOnlyRootFilesystem: false  # FINDING: IAC-140 CWE-284 k8s-writable-root-fs
+            capabilities:
+              add: ["SYS_ADMIN", "NET_RAW", "NET_ADMIN"] # FINDING: IAC-141 CWE-250 k8s-dangerous-capabilities
+              # FINDING: IAC-142 CWE-250 k8s-capabilities-not-dropped (drop: [ALL] absent)
+          ports:
+            - containerPort: 8080
+              hostPort: 8080 # FINDING: IAC-143 CWE-284 k8s-host-port
           env:
             - name: DATABASE_PASSWORD
-              value: "fixture-password-not-real"
+              value: "Sup3rS3cret!" # FINDING: SEC-060 CWE-798 k8s-secret-in-env-literal
+            - name: AWS_SECRET_ACCESS_KEY
+              value: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" # FINDING: SEC-061 CWE-798 k8s-aws-secret-in-env
+          # FINDING: IAC-144 CWE-400 k8s-no-resource-limits (resources block absent)
+          # FINDING: IAC-145 CWE-693 k8s-no-liveness-probe
+          # FINDING: IAC-146 CWE-693 k8s-no-readiness-probe
+          volumeMounts:
+            - name: host-root
+              mountPath: /host
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: host-root
+          hostPath:
+            path: / # FINDING: IAC-147 CWE-284 k8s-hostpath-root-mount
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock # FINDING: IAC-148 CWE-284 k8s-docker-socket-mount

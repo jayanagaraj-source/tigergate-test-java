@@ -1,8 +1,22 @@
 name: Test
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Add java test command here"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+      - run: mvn -B -q compile test-compile
+      - run: java -ea -cp target/classes:target/test-classes AppTest
+      - name: Regenerate SBOM and check it is in sync
+        run: |
+          mvn -B -q cyclonedx:makeAggregateBom
+          scripts/check-sbom-sync.sh
+      - name: Check expected-findings manifest is in sync with markers
+        run: scripts/gen-expected-findings.py --check
