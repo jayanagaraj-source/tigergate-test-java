@@ -12,11 +12,11 @@ jobs:
           distribution: temurin
           java-version: "17"
           cache: maven
-      - run: mvn -B -q compile test-compile
+      - run: ./mvnw -B -q compile test-compile
       - run: java -ea -cp target/classes:target/test-classes AppTest
       - name: Regenerate SBOM and check it is in sync
         run: |
-          mvn -B -q cyclonedx:makeAggregateBom
+          ./mvnw -B -q cyclonedx:makeAggregateBom
           scripts/check-sbom-sync.sh
       - name: Check expected-findings manifest is in sync with markers
         run: scripts/gen-expected-findings.py --check

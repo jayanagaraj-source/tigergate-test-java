@@ -8,7 +8,7 @@ See [SECURITY_FIXTURES.md](SECURITY_FIXTURES.md) for the layout and
 [EXPECTED_FINDINGS.md](EXPECTED_FINDINGS.md) for the full list of planted findings.
 
 ```
-mvn -q compile test-compile                         # builds all fixtures against the real deps
+./mvnw -q compile test-compile                      # builds all fixtures against the real deps (wrapper: no local Maven needed)
 java -ea -cp target/classes:target/test-classes AppTest
 scripts/gen-expected-findings.py                    # regenerate ground truth from markers
 scripts/score.py <scanner-output.sarif>             # score a scanner run
