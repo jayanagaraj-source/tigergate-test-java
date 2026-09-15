@@ -142,8 +142,45 @@ distributionUrlNameMain="${distributionUrlNameMain%-bin}"
 MAVEN_USER_HOME="${MAVEN_USER_HOME:-${HOME}/.m2}"
 MAVEN_HOME="${MAVEN_USER_HOME}/wrapper/dists/${distributionUrlNameMain-}/$(hash_string "$distributionUrl")"
 
+# Repair a missing or broken JAVA_HOME before handing off to Maven's own
+# launcher, which hard-fails with "The JAVA_HOME environment variable is not
+# defined correctly" whenever JAVA_HOME is set but $JAVA_HOME/bin/java is not
+# executable. Scanner/CI runners frequently export a stale JAVA_HOME while a
+# perfectly good `java` sits on PATH; prefer that, then common install roots.
+repair_java_home() {
+  [ -n "${JAVA_HOME-}" ] && [ -x "$JAVA_HOME/bin/java" ] && return 0
+  __bad="${JAVA_HOME-}"
+  __cand=''
+  __j="$(command -v java 2>/dev/null || :)"
+  if [ -n "$__j" ]; then
+    __r="$(readlink -f "$__j" 2>/dev/null || :)"
+    [ -n "$__r" ] && __j="$__r"
+    __cand="$(dirname "$(dirname "$__j")")"
+  fi
+  if [ ! -x "${__cand:-/nonexistent}/bin/java" ] && [ -x /usr/libexec/java_home ]; then
+    __cand="$(/usr/libexec/java_home 2>/dev/null || :)"
+  fi
+  if [ ! -x "${__cand:-/nonexistent}/bin/java" ]; then
+    set +f # this script runs with -f (noglob); the install-root patterns below need globbing
+    for __d in /usr/lib/jvm/* /opt/java/openjdk /usr/local/openjdk-* /opt/jdk* /usr/java/* /usr/local/sdkman/candidates/java/current "${HOME-}/.sdkman/candidates/java/current"; do
+      [ -x "$__d/bin/java" ] && __cand="$__d"
+    done
+    set -f
+  fi
+  if [ -x "${__cand:-/nonexistent}/bin/java" ]; then
+    [ -z "$__bad" ] || printf %s\\n "mvnw: JAVA_HOME=\"$__bad\" has no bin/java; using $__cand instead" >&2
+    JAVA_HOME="$__cand"
+    export JAVA_HOME
+    return 0
+  fi
+  printf %s\\n "mvnw: no usable JDK found. JAVA_HOME=\"$__bad\" is invalid and no 'java' command is on PATH." >&2
+  printf %s\\n "mvnw: install a JDK (17+) on this machine, or point JAVA_HOME at an existing JDK directory." >&2
+  exit 1
+}
+
 exec_maven() {
   unset MVNW_VERBOSE MVNW_USERNAME MVNW_PASSWORD MVNW_REPOURL || :
+  repair_java_home
   exec "$MAVEN_HOME/bin/$MVN_CMD" "$@" || die "cannot exec $MAVEN_HOME/bin/$MVN_CMD"
 }
 

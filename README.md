@@ -16,3 +16,7 @@ scripts/score.py <scanner-output.sarif>             # score a scanner run
 
 **Nothing here is safe to deploy.** `.github/workflows/insecure-ci.yml` is guarded
 with `if: false` so it can never execute.
+
+The wrapper also self-heals a missing or broken `JAVA_HOME` (a common scanner-runner
+misconfiguration): it falls back to `java` on `PATH`, then standard JDK install roots,
+and only fails if no JDK exists on the machine at all.
