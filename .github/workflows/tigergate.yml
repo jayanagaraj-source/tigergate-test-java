@@ -82,6 +82,40 @@ jobs:
         # in the job log.
         run: tigergate --version
 
+      - name: Provision Java toolchain for Maven resolution
+        # The public tigergate-cli image ships no JDK and no Maven, so the CLI's
+        # `mvn dependency:list` step fails and SCA silently degrades to parsing
+        # pom.xml as text -- which misses every transitively-resolved dependency.
+        # Installing a JDK + Maven here restores real resolution.
+        #
+        # Skipped automatically when the selected image already carries the
+        # toolchain, so a custom cli_image needs no change to this workflow.
+        if: contains(fromJSON('["all","sca"]'), inputs.scan_type)
+        run: |
+          set -e
+          if command -v java >/dev/null 2>&1 && command -v mvn >/dev/null 2>&1; then
+            echo "Java and Maven already present in the image; skipping install."
+          elif command -v apt-get >/dev/null 2>&1; then
+            export DEBIAN_FRONTEND=noninteractive
+            apt-get update -qq
+            # Debian trixie carries JDK 21 and 25, not 17. JDK 21 builds this
+            # project's source/target 17 without issue and is LTS.
+            apt-get install -y -qq --no-install-recommends openjdk-21-jdk-headless maven
+          else
+            echo "::warning::No java/mvn and no apt-get in this image - SCA will fall back to static pom.xml parsing and under-report transitive dependencies."
+            exit 0
+          fi
+
+          # Export JAVA_HOME for the scan step: the CLI (and ./mvnw) both prefer it.
+          JAVA_BIN=$(command -v java) || exit 0
+          JAVA_HOME_DIR=$(dirname "$(dirname "$(readlink -f "$JAVA_BIN")")")
+          echo "JAVA_HOME=$JAVA_HOME_DIR" >> "$GITHUB_ENV"
+          echo "$JAVA_HOME_DIR/bin" >> "$GITHUB_PATH"
+
+          echo "JAVA_HOME=$JAVA_HOME_DIR"
+          java -version
+          mvn -v | head -1
+
       - name: Run TigerGate scan
         id: scan
         run: |
