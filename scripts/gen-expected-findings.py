@@ -42,8 +42,12 @@ FILE_LEVEL = [
     ("SBOM-003", "SBOM", "sbom/bom-stale.cdx.json", "CWE-1395", "sbom-phantom-component", "com.example:phantom-lib 1.0.0 in SBOM, not in build"),
     ("SBOM-004", "SBOM", "sbom/bom.cdx.json", "CVE-2021-44228", "sbom-ingest-known-vulnerable", "Scanning the accurate SBOM alone must surface every SCA-0xx CVE without access to pom.xml"),
     ("SBOM-005", "SBOM", "sbom/bom.spdx.json", "CVE-2021-44228", "spdx-ingest-known-vulnerable", "Same expectation for the SPDX rendition"),
-    ("SCA-016", "SCA", "sbom/bom.cdx.json", "CVE-2017-5638", "transitive-ognl", "ognl 3.1.29 pulled in by struts2-core; transitive CVE must be attributed to the struts2-core root"),
-    ("SCA-017", "SCA", "sbom/bom.cdx.json", "CVE-2022-22965", "transitive-spring-core", "spring-core 5.3.17 pulled in by spring-beans"),
+    # Transitive-only packages with published advisories (verified against deps.dev/OSV, 2026-09-15).
+    # A pom-only parser cannot see these; they require real Maven resolution.
+    ("SCA-016", "SCA", "sbom/bom.cdx.json", "CVE-2025-48924", "transitive-commons-lang3", "commons-lang3 3.11 via struts2-core; CVSS 6.5 uncontrolled recursion"),
+    ("SCA-017", "SCA", "sbom/bom.cdx.json", "CVE-2025-41249", "transitive-spring-core", "spring-core 5.3.17 via spring-beans; CVSS 7.5 annotation detection, also CVE-2026-41848"),
+    ("SCA-021", "SCA", "sbom/bom.cdx.json", "CVE-2025-52999", "transitive-jackson-core", "jackson-core 2.9.8 via jackson-databind; also CVE-2025-49128"),
+    ("SCA-022", "SCA", "sbom/bom.cdx.json", "CVE-2026-49844", "transitive-log4j-api", "log4j-api 2.14.1 via log4j-core"),
     ("SCA-018", "SCA", "Dockerfile", "CWE-1104", "container-base-image-cves", "openjdk:8-jdk-alpine (alpine 3.9) has hundreds of OS-package CVEs; image scanning must report them"),
     ("SCA-019", "SCA", "docker-compose.yml", "CWE-1104", "container-postgres-9.6-eol", "postgres:9.6 image is end-of-life"),
 ]

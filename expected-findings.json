@@ -3694,12 +3694,12 @@
       "line": null,
       "line_end": null,
       "line_kind": "file",
-      "ref": "CVE-2017-5638",
+      "ref": "CVE-2025-48924",
       "cves": [
-        "CVE-2017-5638"
+        "CVE-2025-48924"
       ],
-      "slug": "transitive-ognl",
-      "note": "ognl 3.1.29 pulled in by struts2-core; transitive CVE must be attributed to the struts2-core root"
+      "slug": "transitive-commons-lang3",
+      "note": "commons-lang3 3.11 via struts2-core; CVSS 6.5 uncontrolled recursion"
     },
     {
       "id": "SCA-017",
@@ -3710,12 +3710,13 @@
       "line": null,
       "line_end": null,
       "line_kind": "file",
-      "ref": "CVE-2022-22965",
+      "ref": "CVE-2025-41249",
       "cves": [
-        "CVE-2022-22965"
+        "CVE-2025-41249",
+        "CVE-2026-41848"
       ],
       "slug": "transitive-spring-core",
-      "note": "spring-core 5.3.17 pulled in by spring-beans"
+      "note": "spring-core 5.3.17 via spring-beans; CVSS 7.5 annotation detection, also CVE-2026-41848"
     },
     {
       "id": "SCA-018",
@@ -3758,6 +3759,39 @@
       "cves": [],
       "slug": "tf-outdated-provider-version",
       "note": ""
+    },
+    {
+      "id": "SCA-021",
+      "category": "SCA",
+      "expected": true,
+      "file": "sbom/bom.cdx.json",
+      "marker_line": null,
+      "line": null,
+      "line_end": null,
+      "line_kind": "file",
+      "ref": "CVE-2025-52999",
+      "cves": [
+        "CVE-2025-52999",
+        "CVE-2025-49128"
+      ],
+      "slug": "transitive-jackson-core",
+      "note": "jackson-core 2.9.8 via jackson-databind; also CVE-2025-49128"
+    },
+    {
+      "id": "SCA-022",
+      "category": "SCA",
+      "expected": true,
+      "file": "sbom/bom.cdx.json",
+      "marker_line": null,
+      "line": null,
+      "line_end": null,
+      "line_kind": "file",
+      "ref": "CVE-2026-49844",
+      "cves": [
+        "CVE-2026-49844"
+      ],
+      "slug": "transitive-log4j-api",
+      "note": "log4j-api 2.14.1 via log4j-core"
     },
     {
       "id": "SEC-001",
