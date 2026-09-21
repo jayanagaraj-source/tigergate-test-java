@@ -21,3 +21,4 @@ The wrapper also self-heals a missing or broken `JAVA_HOME` (a common scanner-ru
 misconfiguration): it falls back to `java` on `PATH`, then standard JDK install roots,
 and only fails if no JDK exists on the machine at all.
 # tigergate-test-java
+# tigergate-test-java
